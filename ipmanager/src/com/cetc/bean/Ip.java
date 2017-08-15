@@ -1,6 +1,9 @@
 package com.cetc.bean;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,17 +12,22 @@ import java.util.Date;
 public class Ip implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String id;
 
     @Column(nullable = false)
     private String ip;
+    
+    @ManyToOne
+    @JoinColumn(name = "uid", nullable = false)
+    private User user;
+    
+    @Column(nullable = false)
+    private String used;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
-    private String decription;
+    private String description;
 
 	public String getId() {
 		return id;
@@ -37,20 +45,28 @@ public class Ip implements Serializable {
 		this.ip = ip;
 	}
 
-	public String getUsername() {
-		return username;
+	public User getUsername() {
+		return user;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(User username) {
+		this.user = user;
 	}
 
-	public String getDecription() {
-		return decription;
+	public String getUsed() {
+		return used;
 	}
 
-	public void setDecription(String decription) {
-		this.decription = decription;
+	public void setUsed(String used) {
+		this.used = used;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String decription) {
+		this.description = decription;
 	}
 
 

@@ -1,15 +1,12 @@
 package com.cetc.dao;
 
 import java.util.List;
-
+import com.cetc.bean.Ip;
 import com.cetc.bean.IpBean;
-import com.cetc.util.PageBean;
+import com.cetc.util.CrudDao;
 
-public interface IpDao {
-	public boolean addIp(IpBean ipBean);
-	public boolean delIp(IpBean ipBean);
-	public boolean updateIp(IpBean ipBean);
-	public List<IpBean> queryAll();
-	public List<IpBean> queryByName(String username);
-	public PageBean<IpBean> getPager(int pageNo, int pageSize);
+public interface IpDao extends CrudDao<Ip> {
+	List<Ip> findByName(String name);
 }
+
+

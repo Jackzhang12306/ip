@@ -10,9 +10,9 @@ public class IpBean implements Serializable {
 	private static final long serialVersionUID = -654300023595539377L;
 	private String ip;
 	private String id;
-	private String username;							//拥有者
-	private int  used;										//是否使用 0未使用  1使用
-	private String decription;							//描述
+	private String username;							//鎷ユ湁鑰�
+	private int  used;										//鏄惁浣跨敤 0鏈娇鐢�  1浣跨敤
+	private String description;							//鎻忚堪
 	public String getUsername() {
 		return username;
 	}
@@ -21,10 +21,10 @@ public class IpBean implements Serializable {
 	}
 	
 	public String getDecription() {
-		return decription;
+		return description;
 	}
 	public void setDecription(String decription) {
-		this.decription = decription;
+		this.description = decription;
 	}
 	public String getIp() {
 		return ip;
@@ -50,8 +50,9 @@ public class IpBean implements Serializable {
         super();
         this.id = ip.getId();
         this.ip = ip.getIp();
-        this.ip = ip.getUsername();
-        this.ip = ip.getDecription();
+        this.used=Integer.parseInt(ip.getUsed());
+        this.username = ip.getUsername();
+        this.description = ip.getDescription();
     }
 	
 
