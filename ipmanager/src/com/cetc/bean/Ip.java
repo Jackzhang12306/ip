@@ -2,10 +2,11 @@ package com.cetc.bean;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "iptable")
@@ -21,6 +22,7 @@ public class Ip implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "uid", nullable = false)
+    @Cascade(CascadeType.ALL)
     private User user;
     
     @Column(nullable = false)
@@ -45,11 +47,11 @@ public class Ip implements Serializable {
 		this.ip = ip;
 	}
 
-	public User getUsername() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUsername(User username) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

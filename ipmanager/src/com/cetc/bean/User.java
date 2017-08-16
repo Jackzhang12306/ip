@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String telephone;
     
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Ip> ips;
+    /*@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Ip> ips = new ArrayList<>();*/
 
 	public String getUid() {
 		return uid;
@@ -37,9 +38,9 @@ public class User implements Serializable {
 		return telephone;
 	}
 
-	public List<Ip> getIps() {
+	/*public List<Ip> getIps() {
 		return ips;
-	}
+	}*/
 
 	public void setUid(String uid) {
 		this.uid = uid;
@@ -53,9 +54,9 @@ public class User implements Serializable {
 		this.telephone = telephone;
 	}
 
-	public void setIps(List<Ip> ips) {
+	/*public void setIps(List<Ip> ips) {
 		this.ips = ips;
-	}
+	}*/
     
    
 }
